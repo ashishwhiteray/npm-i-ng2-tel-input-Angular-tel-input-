@@ -1,0 +1,37 @@
+Step 1____  
+-----------------------Install------------------------
+npm i ng2-tel-input
+
+
+Step 2____  
+-----------------------Import css and js in Angular.json------------------------
+
+"styles": [
+    ...
+    "./node_modules/intl-tel-input/build/css/intlTelInput.css",
+    ...
+  ]
+  
+  
+  "scripts": [
+    ...
+    "./node_modules/intl-tel-input/build/js/intlTelInput.min.js"
+    ...
+  ]
+  
+  
+  Step 3____  
+-----------------------Import in AppModule.ts------------------------
+import {Ng2TelInputModule} from 'ng2-tel-input';
+
+
+
+Step 4____  
+-----------------------Place in html in component.html------------------------
+<input type="text"
+  ng2TelInput
+  [ng2TelInputOptions]="{initialCountry: 'in'}"
+  (hasError)="hasError($event)"
+  (ng2TelOutput)="getNumber($event)"
+  (intlTelInputObject)="telInputObject($event)"
+  (countryChange)="onCountryChange($event)" />
